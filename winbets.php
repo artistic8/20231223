@@ -81,7 +81,7 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
         $allTrioValues = array_keys($qplsOdds);
         $racetext .= "\t\t'trio'        =>  $TrioText ,\n";
         $racetext .= "\t\t'trio values' =>  '" . implode(", ", $allTrioValues) . "',\n";
-        $qin = array_slice($allTrioValues, 0, 7);
+        $qin = array_slice($allTrioValues, 0, 6);
         $racetext .= "\t\t'qin' =>  '" . implode(", ", $qin) . "',\n";
         $weights = [];
         foreach($qin as $winner){

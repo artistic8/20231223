@@ -93,6 +93,13 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
             foreach($trio2 as $trioItem2){
                 $allTrioValues2 = array_values(array_unique(array_merge($allTrioValues2, $trioItem2)));
             }
+            //Sort  allTrioValues2 by odds
+            $qplsOdds = [];
+            foreach($allTrioValues2 as $iIndex){
+                if(isset($allRacesOdds[$raceNumber][$iIndex])) $qplsOdds[$iIndex] = $allRacesOdds[$raceNumber][$iIndex];
+            }
+            asort($qplsOdds);
+            $allTrioValues2 = array_keys($qplsOdds);
             $qin2 = array_slice($allTrioValues2, 0, 6);
             $inter = array_intersect($qin, $qin2);
             $racetext .= "\t\t'inter' =>  '" . implode(", ", $inter) . "',\n";
@@ -102,6 +109,13 @@ for ($raceNumber = 1; $raceNumber <= $totalRaces; $raceNumber++) {
                 foreach($trio3 as $trioItem3){
                     $allTrioValues3 = array_values(array_unique(array_merge($allTrioValues3, $trioItem3)));
                 }
+                //Sort  allTrioValues3 by odds
+                $qplsOdds = [];
+                foreach($allTrioValues3 as $iIndex){
+                    if(isset($allRacesOdds[$raceNumber][$iIndex])) $qplsOdds[$iIndex] = $allRacesOdds[$raceNumber][$iIndex];
+                }
+                asort($qplsOdds);
+                $allTrioValues3 = array_keys($qplsOdds);
                 $qin3 = array_slice($allTrioValues3, 0, 6);
                 $inter2 = array_intersect($qin, $qin2, $qin3);
                 $racetext .= "\t\t'inter2' =>  '" . implode(", ", $inter2) . "',\n";
